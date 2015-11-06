@@ -51,20 +51,22 @@ var leaderBoard = function() {
   $("#rankings").empty();
 
   for (var i = 0; i < rankingBoard.length-1; i++) { 
-    $("#rankings").append(
-      '<li id="listRanks">'
-      + '<div id="playerRank"> rank: '
-      + rankingBoard[i].rank
-      + '</div>'
-      + '<div id="playerName">'
-      + rankingBoard[i].name
-      + '</div>'
-      + " "
-      + '<div id="scoreChip">'
-      +  rankingBoard[i].score
-      + '</div>'
-      + "</li>"
-    );
+    if (rankingBoard[i].score > 0) {
+      $("#rankings").append(
+        '<li id="listRanks">'
+        + '<div id="playerRank"> rank: '
+        + rankingBoard[i].rank
+        + '</div>'
+        + '<div id="playerName">'
+        + rankingBoard[i].name
+        + '</div>'
+        + " "
+        + '<div id="scoreChip">'
+        +  rankingBoard[i].score
+        + '</div>'
+        + "</li>"
+      );
+    };
   };
 };
 
@@ -94,7 +96,7 @@ if (nameScoreObject.name.length > 0 && nameScoreObject.score > 0) {
     if (rankingBoard[i].name == nameScoreObject.name){
       rankingBoard[i].score = parseInt(rankingBoard[i].score, 10) + parseInt(nameScoreObject.score, 10);
       //adding successfully
-    } else{
+      nameScoreObject.score = 0;
     };
     
   };
