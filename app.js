@@ -1,4 +1,4 @@
-var rankingBoard = [0];
+var rankingBoard = [{name: "", score: 0, rank: 0}];
 
 var addGame = function() {
   var addNew = $("#newGame")
@@ -28,8 +28,8 @@ var leaderBoard = function() {
   function ranker(array) {
     var rankedArray = [];
     for (var i = 0; i < array.length; i++) { 
-      if ( i < 2 ){
-        array[1].rank = 1;
+      if ( i < 1 ){
+        array[0].rank = 1;
         rankedArray.push(array[1]);
       } else {
         if (array[i].score == rankedArray[i - 1].score) {
@@ -50,7 +50,7 @@ var leaderBoard = function() {
 
   $("#rankings").empty();
 
-  for (var i = 1; i < rankingBoard.length; i++) { 
+  for (var i = 0; i < rankingBoard.length-1; i++) { 
     $("#rankings").append(
       '<li id="listRanks">'
       + '<div id="playerRank"> rank: '
@@ -79,13 +79,20 @@ $("#addToRankings").click(function() {
 
   games.each(function(){
       gameArray.push($(this).val());
+
       nameScoreObject.name = gameArray[0];
       nameScoreObject.score = gameArray[1];
       nameScoreObject.rank = 0;
   });
 
 if (nameScoreObject.name.length > 0 && nameScoreObject.score > 0) {
+
+  // iterate through rankingBoard slots names and if exist add 
+  // the scores
+  
   rankingBoard.push(nameScoreObject);
+
+console.log(rankingBoard)
 }
 
   $("div#newGame #game").remove();
@@ -94,7 +101,7 @@ if (nameScoreObject.name.length > 0 && nameScoreObject.score > 0) {
 });
 
 $("#clear").click(function() {
-  rankingBoard = [0];
+  rankingBoard = [{name: "", score: 0, rank: 0}];
   $("#rankings").empty();
   // document.getElementById("newGame").remove();
   document.getElementById("game").remove();
