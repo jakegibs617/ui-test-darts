@@ -5,10 +5,11 @@ var addGame = function() {
   $(addNew).append(
     '<div id="game">'
     + '<br>'
-    + '<label for="username">name: </label>'
+    + '<label for="username">name:</label>'
     + '<input type="text" placeholder="Winston Churchill" name="username">'
     + '<br>'
-    + '<label for="score">score: </label>'
+    + '<br>'
+    + '<label for="score">score:</label>'
     + '<input type="number" placeholder="31" name="score">'
     + '<br>'
     + '</div>'
@@ -52,21 +53,20 @@ var leaderBoard = function() {
 
   $("#rankings").empty();
 
-  for (var i = 0; i < rankingBoard.length; i++) { 
+  for (var i = 1; i < rankingBoard.length; i++) { 
     $("#rankings").append(
-      "<li>"
-      + '<div id="playerRank">'
-      + rankingBoard[i+1].rank
+      '<li id="listRanks">'
+      + '<div id="playerRank"> rank: '
+      + rankingBoard[i].rank
       + '</div>'
-      + ": "
       + '<div id="playerName">'
-      + rankingBoard[i+1].name
+      + rankingBoard[i].name
       + '</div>'
       + " "
       + '<div id="scoreChip">'
-      +  rankingBoard[i+1].score
+      +  rankingBoard[i].score
       + '</div>'
-      + " pts </li>"
+      + "</li>"
     );
   };
 };
@@ -95,9 +95,9 @@ $("#addToRankings").click(function() {
 });
 
 $("#clear").click(function() {
-  rankingBoard = [];
+  rankingBoard = [0];
   $("#rankings").empty();
-  document.getElementById("newGame").remove();
+  // document.getElementById("newGame").remove();
   document.getElementById("game").remove();
   addGame();
 });
