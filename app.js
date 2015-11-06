@@ -1,4 +1,4 @@
-var rankingBoard = [];
+var rankingBoard = [0];
 
 var addGame = function() {
   var addNew = $("#newGame")
@@ -46,10 +46,7 @@ var leaderBoard = function() {
   };
   // good ranking!
 
-
   ranker(rankingBoard);
-  console.log(rankingBoard);
-  console.log(rankingBoard[1]);
 
   $("#rankings").empty();
 
@@ -81,13 +78,15 @@ $("#addToRankings").click(function() {
   var nameScoreObject = {};
 
   games.each(function(){
-    gameArray.push($(this).val());
-    nameScoreObject.name = gameArray[0];
-    nameScoreObject.score = gameArray[1];
-    nameScoreObject.rank = 0;
+      gameArray.push($(this).val());
+      nameScoreObject.name = gameArray[0];
+      nameScoreObject.score = gameArray[1];
+      nameScoreObject.rank = 0;
   });
-  
+
+if (nameScoreObject.name.length > 0 && nameScoreObject.score > 0) {
   rankingBoard.push(nameScoreObject);
+}
 
   $("div#newGame #game").remove();
   addGame();
