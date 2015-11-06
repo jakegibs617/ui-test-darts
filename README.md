@@ -8,7 +8,7 @@ almost there... using objects in javascript to store players, their names, score
 √: * Clicking `Add to Rankings` parses the contents of the form field and adds the output to the rankings.
 √: * The rankings should be appended to `ul#rankings` and formatted to meet the example output below.
 √: * Players with the same score are 'tied', and should have the same rank.
-not yet: * Players can take any number of turns. The results of multiple turns are added to the players' score.
+not yet: √* Players can take any number of turns. The results of multiple turns are added to the players' score.
 
 ### Example
 The following game should produce the specified output.
