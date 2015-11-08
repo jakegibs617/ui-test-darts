@@ -1,5 +1,17 @@
 # ui-test-darts
 
+to run, 
+
+$ git clone https://github.com/jakegibs617/ui-test-darts.git
+
+$cd ui-test-darts/
+
+$ rm -rf .git
+
+$ open index.html
+
+first, add a game, enter name and score then add to rankings
+
 ![app](http://i.imgur.com/qFvHdRX.png)
 
 ### Rules
