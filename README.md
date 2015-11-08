@@ -4,7 +4,7 @@ to run,
 
 $ git clone https://github.com/jakegibs617/ui-test-darts.git
 
-$cd ui-test-darts/
+$ cd ui-test-darts/
 
 $ rm -rf .git
 
